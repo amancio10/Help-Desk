@@ -4,7 +4,7 @@
         <ProjectVersion>19.5</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -84,6 +84,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -93,6 +95,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>HelpDesk_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -106,6 +111,38 @@
             <Form>Dados</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="U_Abrir_Chamado.pas">
+            <Form>Frm_Abrir_Chamado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Historico.pas">
+            <Form>Frm_Historico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Cad_User.pas">
+            <Form>Frm_Cad_User</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Comunicar_Atividade.pas">
+            <Form>Frm_Comunicar_Atividade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Tb_Chamados.pas">
+            <Form>Frm_Tb_Chamados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Resp_Chamados.pas">
+            <Form>Frm_Resp_Chamados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Painel.pas">
+            <Form>Frm_Painel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_Login.pas">
+            <Form>Frm_Login</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -127,6 +164,10 @@
                 <Source>
                     <Source Name="MainSource">HelpDesk.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="Win32\Debug\HelpDesk.exe" Configuration="Debug" Class="ProjectOutput">

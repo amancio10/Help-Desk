@@ -3,7 +3,7 @@ unit U_Dados;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, Forms;
 
 type
   TDados = class(TDataModule)

@@ -12,12 +12,13 @@ object Frm_Principal: TFrm_Principal
   Font.Style = []
   Position = poDesktopCenter
   WindowState = wsMaximized
+  OnShow = FormShow
   TextHeight = 15
   object Image_Fundo: TImage
     Left = 0
     Top = 143
     Width = 1068
-    Height = 453
+    Height = 434
     Align = alClient
     Center = True
     Picture.Data = {
@@ -5270,11 +5271,30 @@ object Frm_Principal: TFrm_Principal
         Caption = '     Desenvolvedor     '
         Page = RibbonPage3
       end>
+    TabIndex = 2
     ExplicitWidth = 1064
     DesignSize = (
       1068
       143)
     StyleName = 'Ribbon - Luna'
+    object RibbonPage1: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 1067
+      Height = 93
+      Caption = '     In'#237'cio     '
+      Index = 0
+      ExplicitWidth = 1063
+      object RibbonGroup1: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 177
+        Height = 86
+        ActionManager = ActionManager
+        Caption = 'In'#237'cio'
+        GroupIndex = 0
+      end
+    end
     object RibbonPage2: TRibbonPage
       Left = 0
       Top = 50
@@ -5320,24 +5340,23 @@ object Frm_Principal: TFrm_Principal
         GroupIndex = 1
       end
     end
-    object RibbonPage1: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 1067
-      Height = 93
-      Caption = '     In'#237'cio     '
-      Index = 0
-      ExplicitWidth = 1063
-      object RibbonGroup1: TRibbonGroup
-        Left = 4
-        Top = 3
-        Width = 304
-        Height = 86
-        ActionManager = ActionManager
-        Caption = 'In'#237'cio'
-        GroupIndex = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 577
+    Width = 1068
+    Height = 19
+    Panels = <
+      item
+        Width = 300
       end
-    end
+      item
+        Text = 'amanciosantos10@gmail.com'
+        Width = 50
+      end>
+    ExplicitLeft = -1
+    ExplicitTop = 567
+    ExplicitWidth = 1069
   end
   object ImageList_Small: TImageList
     Left = 56
@@ -8674,15 +8693,8 @@ object Frm_Principal: TFrm_Principal
             CommandProperties.ButtonSize = bsLarge
           end
           item
-            Action = Action2
-            Caption = 'A&companhar meus chamados (abertos)'
-            ImageIndex = 0
-            CommandProperties.ButtonSize = bsLarge
-          end
-          item
             Action = Action3
-            Caption = '&Hist'#243'rico de chamados'
-            ImageIndex = 1
+            ImageIndex = 0
             CommandProperties.ButtonSize = bsLarge
           end
           item
@@ -8794,46 +8806,47 @@ object Frm_Principal: TFrm_Principal
     object Action1: TAction
       Caption = 'Abrir Chamado'
       ImageIndex = 12
-    end
-    object Action2: TAction
-      Caption = 'Acompanhar meus chamados (abertos)'
-      ImageIndex = 0
+      OnExecute = Action1Execute
     end
     object Action3: TAction
-      Caption = 'Hist'#243'rico de chamados'
-      ImageIndex = 1
-    end
-    object Action6: TAction
-      Caption = 'Relat'#243'rio de atividades'
-      ImageIndex = 2
+      Caption = 'Meus chamados'
+      ImageIndex = 0
+      OnExecute = Action3Execute
     end
     object Action11: TAction
       Caption = 'Meus dados'
       ImageIndex = 5
+      OnExecute = Action11Execute
     end
     object Action5: TAction
       Caption = 'chamados'
       ImageIndex = 10
+      OnExecute = Action5Execute
     end
     object Action8: TAction
       Caption = 'Painel'
       ImageIndex = 5
-    end
-    object Action10: TAction
-      Caption = 'GitHub'
-      ImageIndex = 16
+      OnExecute = Action8Execute
     end
     object Action9: TAction
       Caption = 'linkedIn'
       ImageIndex = 17
+      OnExecute = Action9Execute
+    end
+    object Action10: TAction
+      Caption = 'GitHub'
+      ImageIndex = 16
+      OnExecute = Action10Execute
     end
     object Action7: TAction
       Caption = 'Cadastro de Usu'#225'rios'
       ImageIndex = 3
+      OnExecute = Action7Execute
     end
     object Action12: TAction
       Caption = 'Comunique atividade'
       ImageIndex = 15
+      OnExecute = Action12Execute
     end
   end
 end
